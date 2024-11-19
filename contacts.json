@@ -3,8 +3,8 @@
     "name": "Yulia Shevchenko",
     "phoneNumber": "+380000000001",
     "email": "oleh1@example.com",
-    "isFavourite": false,
-    "contactType": "personal",
+    "isFavourite": true,
+    "contactType": "work",
     "createdAt": "2024-05-08T16:12:14.954151",
     "updatedAt": "2024-05-08T16:12:14.954158"
   },
@@ -21,7 +21,7 @@
     "name": "Andriy Pavlenko",
     "phoneNumber": "+380000000003",
     "email": "dmytro3@example.com",
-    "isFavourite": false,
+    "isFavourite": true,
     "contactType": "home",
     "createdAt": "2024-05-08T16:12:14.954168",
     "updatedAt": "2024-05-08T16:12:14.954170"
@@ -39,7 +39,7 @@
     "name": "Kateryna Povalenko",
     "phoneNumber": "+380000000005",
     "email": "ivan5@example.com",
-    "isFavourite": false,
+    "isFavourite": true,
     "contactType": "personal",
     "createdAt": "2024-05-08T16:12:14.954178",
     "updatedAt": "2024-05-08T16:12:14.954179"
