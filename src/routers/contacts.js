@@ -26,14 +26,14 @@ contactsRouter.post(
 
 contactsRouter.patch(
   '/:id',
-  // isValidId,
+  isValidId,
   validateBody(contactUpdateSchema),
   ctrlWrapper(contactControllers.patchContactController),
 );
 
 contactsRouter.delete(
   '/:id',
-  // isValidId,
+  isValidId,
   ctrlWrapper(contactControllers.deleteContactController),
 );
 
