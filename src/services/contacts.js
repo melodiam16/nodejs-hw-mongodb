@@ -53,13 +53,15 @@ export const getContacts = async ({
     ...paginationData,
   };
 };
-export const getContactsById = (id) => ContactCollection.findById(id);
+// export const getContactsById = (id) => ContactCollection.findById(id);
+export const getContactsById = (id, userId) =>
+  ContactCollection.findOne({ _id: id, userId });
 
 export const addContact = (peyload) => ContactCollection.create(peyload);
 
-export const updateContact = async ({ _id, peyload, options = {} }) => {
+export const updateContact = async ({ _id, userId, peyload, options = {} }) => {
   const updatedContact = await ContactCollection.findOneAndUpdate(
-    { _id },
+    { _id, userId },
     peyload,
     {
       new: true,
@@ -75,5 +77,7 @@ export const updateContact = async ({ _id, peyload, options = {} }) => {
   };
 };
 
-export const deleteContact = async (filter) =>
-  ContactCollection.findOneAndDelete(filter);
+// export const deleteContact = async (filter) =>
+//   ContactCollection.findOneAndDelete(filter);
+export const deleteContact = async ({ _id, userId }) =>
+  ContactCollection.findOneAndDelete({ _id, userId });
