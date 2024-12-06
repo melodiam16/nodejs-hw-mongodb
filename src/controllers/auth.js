@@ -18,14 +18,38 @@ const setupSession = (res, session) => {
 };
 
 export const registerController = async (req, res) => {
-  const data = await authServices.register(req.body);
+  const user = await authServices.register(req.body);
 
-  res.status(201).json({
-    status: 201,
-    message: 'Successfully registered a user!',
-    data,
+  if (user) {
+    const userData = user.toObject();
+    delete userData.password;
+
+    return res.status(201).json({
+      status: 201,
+      message: 'Successfully registered a user!',
+      data: userData,
+    });
+  }
+
+  res.status(400).json({
+    status: 400,
+    message: 'Registration failed!',
   });
 };
+
+// export const registerController = async (req, res) => {
+//   const data = await authServices.register(req.body);
+
+//   if (data) {
+//     delete data.password;
+//   }
+
+//   res.status(201).json({
+//     status: 201,
+//     message: 'Successfully registered a user!',
+//     data,
+//   });
+// };
 
 export const loginController = async (req, res) => {
   const session = await authServices.login(req.body);
