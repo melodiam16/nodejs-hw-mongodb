@@ -7,6 +7,7 @@ import authRouter from './routers/auth.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import cookieParser from 'cookie-parser';
+import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
 const PORT = Number(env('PORT', '3000'));
 
@@ -17,6 +18,7 @@ export const setupServer = () => {
   app.use(express.json());
   app.use(cookieParser());
   app.use(express.static('uploads'));
+   app.use('/api-docs', swaggerDocs());
 
   app.use(
     pino({
